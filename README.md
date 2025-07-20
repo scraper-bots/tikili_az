@@ -912,10 +912,6 @@ training_args = TrainingArguments(
 - [DOLLMA Corpus](https://arxiv.org/abs/2407.02337)
 - [AzerBERT Models](https://huggingface.co/language-ml-lab/iranian-azerbaijani-nlp)
 
-### Community
-- [DeepSeek Discord](https://discord.gg/deepseek)
-- [Azerbaijani NLP Group](https://t.me/azerbaijani_nlp)
-- [Hugging Face Community](https://huggingface.co/join/discord)
 
 ## 📄 License
 
