@@ -934,27 +934,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **PEFT/LoRA Authors** for parameter-efficient fine-tuning methods
 - **Unsloth Team** for optimization frameworks
 
-## 📞 Contact & Support
-
-**Ismat Samadov**
-- 🐙 GitHub: [@Ismat-Samadov](https://github.com/Ismat-Samadov)
-- 📧 Email: ismat.samadov@example.com
-- 💼 LinkedIn: [Ismat Samadov](https://linkedin.com/in/ismat-samadov)
-- 📱 Twitter: [@ismat_samadov](https://twitter.com/ismat_samadov)
-
-### Getting Help
-
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/Ismat-Samadov/deepseek_AZE/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/Ismat-Samadov/deepseek_AZE/discussions)
-- 📖 **Documentation**: [Wiki](https://github.com/Ismat-Samadov/deepseek_AZE/wiki)
-- 💡 **Feature Requests**: [Feature Request Template](https://github.com/Ismat-Samadov/deepseek_AZE/issues/new?template=feature_request.md)
-
-## 🔗 Related Projects
-
-- [Named Entity Recognition for Azerbaijani](https://github.com/Ismat-Samadov/Named_Entity_Recognition)
-- [Speech Emotion Recognition](https://github.com/Ismat-Samadov/Speech_Emotion_Recognition)
-- [Crop Disease Detection](https://github.com/Ismat-Samadov/crop_desease_detection)
-
 ---
 
 <div align="center">
