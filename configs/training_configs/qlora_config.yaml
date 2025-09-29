@@ -1,0 +1,107 @@
+model:
+  name: "deepseek-ai/deepseek-llm-7b-base"
+  cache_dir: "./model_cache"
+  torch_dtype: "float16"
+  device_map: "auto"
+  load_in_4bit: true
+  load_in_8bit: false
+  trust_remote_code: true
+
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.1
+  target_modules:
+    - "q_proj"
+    - "v_proj"
+    - "k_proj"
+    - "o_proj"
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+training:
+  output_dir: "./checkpoints"
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 8
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  warmup_steps: 100
+  max_grad_norm: 1.0
+
+  # Precision and memory
+  fp16: true
+  bf16: false
+  gradient_checkpointing: true
+  dataloader_pin_memory: false
+
+  # Evaluation and saving
+  evaluation_strategy: "steps"
+  eval_steps: 500
+  save_strategy: "steps"
+  save_steps: 1000
+  save_total_limit: 3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+
+  # Logging
+  logging_steps: 10
+
+  # Early stopping
+  early_stopping: false
+  early_stopping_patience: 3
+
+  # Seeds
+  seed: 42
+  data_seed: 42
+
+data:
+  dataset_path: "data/processed/azerbaijani_instructions.json"
+  dataset_type: "instruction"
+  text_column: "text"
+  max_length: 2048
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+  preprocessing_num_workers: 4
+
+  # Data filtering
+  min_length: 10
+  max_length_filter: 4096
+  filter_duplicates: true
+  filter_non_azerbaijani: true
+  azerbaijani_threshold: 0.7
+
+monitoring:
+  use_wandb: false
+  wandb_project: "deepseek-azerbaijani"
+  wandb_entity: null
+  run_name: "deepseek-aze-qlora-experiment"
+  tags:
+    - "azerbaijani"
+    - "deepseek"
+    - "qlora"
+    - "fine-tuning"
+
+  use_tensorboard: true
+  log_dir: "./logs"
+
+  save_model_metadata: true
+  track_memory: true
+
+deployment:
+  api_host: "0.0.0.0"
+  api_port: 8000
+  workers: 1
+  reload: false
+  log_level: "info"
+
+  # Model serving
+  max_concurrent_requests: 10
+  timeout: 30
+  max_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
